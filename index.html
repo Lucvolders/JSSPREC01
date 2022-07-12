@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1 style="color:red;">Luc's speech recognition</h1>
+<h2>Below comes the text that you speak.</h2>
+<br><br>
+<p id="texthere"></p>
+
+<script>
+
+window.SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
+
+   function start()
+      {
+          recognition.start();
+      }
+
+    const recognition = new window.SpeechRecognition();
+
+    recognition.continuous = true;
+    recognition.lang = "en-US"
+
+    recognition.onresult = (event) => 
+    {
+      var textheard = (event.results[event.results.length -1][0].transcript);
+      document.getElementById("texthere").innerHTML = textheard;
+    }
+    
+    recognition.start();
+
+    // volgende regel start recognition opnieuw
+    recognition.onend = function(){recognition.start();};
+
+</script>
+</html>

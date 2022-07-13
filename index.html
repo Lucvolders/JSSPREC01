@@ -24,6 +24,18 @@ window.SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecogn
     {
       var textheard = (event.results[event.results.length -1][0].transcript);
       document.getElementById("texthere").innerHTML = textheard;
+       
+             textheard = textheard.toLowerCase();
+      if (textheard.includes("gooi de dobbelsteen"))
+        {
+        document.getElementById("texthere").innerHTML = "Je gooide een ".concat(Math.floor(Math.random() * 5)+1); 
+        msg.text = "Je gooide een ".concat(Math.floor(Math.random() * 5)+1);
+        speechSynthesis.speak(msg);
+        }
+      else
+        {
+        textheard = textheard.toLowerCase();
+        }
     }
     
     recognition.start();

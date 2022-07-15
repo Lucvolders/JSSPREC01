@@ -1,15 +1,39 @@
 <!DOCTYPE html>
 <html>
 <body>
-<h1 style="color:red;">Luc's speech recognition</h1>
-<h2>Below comes the text that you speak.</h2>
-<br><br>
+<h1 style="color:red;">Luc's spraak herkenning</h1>
+<br>
+<h3 style ="color:red;">
+Begin met in het scherm te klikken om te starten<br>
+Zeg wat je wil en lees de tekst hieronder.<br><br>
+Zet je luidspreker aan en<br>
+probeer zeker eens de tekst: gooi de dobbelsteen<br>
+</h3>
+<h2>hieronder verschijnt de text die je insprak.</h2>
+<br>
 <p id="texthere"></p>
 
 <script>
+   window.onclick = myFunction;
 
-window.SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
-var msg = new SpeechSynthesisUtterance();
+  function myFunction() 
+       {
+       document.getElementsByTagName("BODY")[0].style.backgroundColor = "PowderBlue";
+       }
+
+   window.SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
+    
+    var msg = new SpeechSynthesisUtterance();
+    var voices = window.speechSynthesis.getVoices();
+    msg.voice = voices[0];
+    //msg.voiceURI = 'native';
+    //msg.volume = 1; // 0 to 1
+    //msg.rate = 1; // 0.1 to 10
+    //msg.pitch = 2; //0 to 2
+    msg.lang = 'nl';
+
+   var dobbel = Math.floor(Math.random() * 5)+1;
+
    function start()
       {
           recognition.start();
@@ -28,8 +52,9 @@ var msg = new SpeechSynthesisUtterance();
       textheard = textheard.toLowerCase();
       if (textheard.includes("gooi de dobbelsteen"))
         {
-        document.getElementById("texthere").innerHTML = "Je gooide een ".concat(Math.floor(Math.random() * 5)+1); 
-        msg.text = "Je gooide een ".concat(Math.floor(Math.random() * 5)+1);
+        var dobbel = Math.floor(Math.random() * 5)+1
+        document.getElementById("texthere").innerHTML = "Je gooide een ".concat(dobbel); 
+        msg.text = "Je gooide een ".concat(dobbel);
         speechSynthesis.speak(msg);
         }
       else

@@ -64,7 +64,7 @@ probeer zeker eens de tekst: gooi de dobbelsteen<br>
         return response.text().then(function(text) {
         text = parseInt(text);
         alert(text);
-        msg.text = "Hallo Luc de temperatuur in je kamer is  "; //.concat(text).concat(" graden");
+        msg.text = "Hallo Luc de temperatuur in je kamer is  ".concat(text; //.concat(" graden");
         speechSynthesis.speak(msg);
         });
         });

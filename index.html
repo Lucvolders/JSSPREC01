@@ -5,7 +5,7 @@
 <br>
 <h3 style ="color:red;">
 Begin met in het scherm te klikken om te starten<br>
-Het scherm wordt dan lichtblauw<br>   
+Het scherm wordt dan lichtblauw<br>
 Zeg wat je wil en lees de tekst hieronder.<br><br>
 Zet je luidspreker aan en<br>
 probeer zeker eens de tekst: gooi de dobbelsteen<br>
@@ -17,7 +17,7 @@ probeer zeker eens de tekst: gooi de dobbelsteen<br>
 <script>
    window.onclick = myFunction;
 
-   function myFunction() 
+  function myFunction() 
        {
        document.getElementsByTagName("BODY")[0].style.backgroundColor = "PowderBlue";
        }
@@ -58,7 +58,7 @@ probeer zeker eens de tekst: gooi de dobbelsteen<br>
         msg.text = "Je gooide een ".concat(dobbel);
         speechSynthesis.speak(msg);
         }
-        else if (textheard.includes("hoe warm is het thuis"))
+      else if (textheard.includes("hoe warm is het thuis"))
         {
         fetch(`http://api.thingspeak.com/channels/213920/field/1/last`).then(function(response) {
         return response.text().then(function(text) {
@@ -67,7 +67,7 @@ probeer zeker eens de tekst: gooi de dobbelsteen<br>
         speechSynthesis.speak(msg);
         });
         });
-        } 
+        }
       else
         {
         textheard = textheard.toLowerCase();

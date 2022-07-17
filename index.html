@@ -63,7 +63,7 @@ probeer zeker eens de tekst: gooi de dobbelsteen<br>
         fetch(`https://api.thingspeak.com/channels/213920/field/1/last`).then(function(response) {
         return response.text().then(function(text) {
         text = parseInt(text);
-        msg.text = "Hallo Luc de temperatuur in je kamer is  ".concat(text).concat(" graden");
+        msg.text = "Hallo Luc de temperatuur in je kamer is  ".concat(text); //.concat(" graden");
         speechSynthesis.speak(msg);
         });
         });
